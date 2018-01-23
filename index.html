@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				border: none;
+			}
+			#ks{
+				width: 100vw;
+				height: 100vh;
+				position: absolute;
+				z-index: 30;
+			}
+			#ks img:first-child{
+				width: 100vw;
+				height: 80vh;
+				float: left;
+			}
+			#ks img:nth-child(2){
+				width: 100vw;
+				height: 8vh;
+				float: left;
+			}
+			#ks img:last-child{
+				width: 100vw;
+				height: 12vh;
+				float: left;
+			}
+			#zhu{
+				width: 100vw;
+				height: 100vh;
+				display: none;
+				position: absolute;
+				z-index: 50;
+			}
+			.fir{
+				width: 100vw;
+				height: 30vh;
+			}
+			#zhu #rpx{
+				width: 100vw;
+				height: 3vh;
+				color: gold;
+				line-height: 3vh;
+				text-align: center;
+				position: absolute;
+				top: 25vh;
+				z-index: 10;
+			}
+			#num{
+				padding: 0 2vw;
+			}
+			.ovclick{
+				padding-left: 10vw;
+			}
+			#box{
+				width: 74vw;
+				height: 41.5vh;
+				border: solid 5px red;
+				position: relative;
+				left: 12vw;
+				z-index: 10;
+			}
+			#box img{
+				width: 25vw;
+				height: 14vh;
+				border: solid 4px white;
+				box-sizing: border-box;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#box img:nth-child(1){
+				border: solid 4px aqua;
+			}
+			#box img:nth-child(2){
+				left: 100px;
+			}
+			#box img:nth-child(3){
+				left: 200px;
+			}
+			#box img:nth-child(4){
+				left: 200px;
+				top: 100px;
+			}
+			#box img:nth-child(5){
+				left: 200px;
+				top: 200px;
+			}
+			#box img:nth-child(6){
+				left: 100px;
+				top: 200px;
+			}
+			#box img:nth-child(7){
+				top: 200px;
+			}
+			#box img:nth-child(8){
+				
+				top: 100px;
+			}
+			#box img:nth-child(9){
+				left: 100px;
+				top: 100px;
+			}
+			#zhu #back{
+				width: 100vw;
+				height: 45vh;
+				position: absolute;
+				top: 30vh;
+			}
+			#zhu #jiang{
+				width: 100vw;
+				height: 7vh;
+				margin-top: 1.5vh;
+			}
+			#zhu #down{
+				width: 100vw;
+				height: 18vh;
+				position: absolute;
+				bottom: 0vh;
+			}
+			#down_box{
+				width: 74vw;
+				height: 13vh;
+				border: solid 5px red;
+				position: absolute;
+				background-color: white;
+				left: 12vw;
+				bottom: 2vh;
+				overflow: hidden;
+			}
+			#down_box h2{
+				height: 5vh;
+				color: red;
+				line-height: 5vh;
+				padding-left: 1vh;
+			}
+			#lunbo_box{
+				width: 100vw;
+				height: 8vh;
+				position: relative;
+				overflow: hidden;
+			}
+			#lunbo{
+				position: absolute;
+				top: 0;
+				animation:bo 4s infinite linear;
+			}
+			#lunbo div{
+				font-size: 14px;
+				padding-left: 1vh;
+			}
+			@keyframes  bo{
+				from{top: 0px;}
+				to{top: -210px;}
+			}
+			#guize{
+				width: 74vw;
+				height: 40vh;
+				background-color: white;
+				border-radius: 10px;
+				position: fixed;
+				left: 12vw;
+				top: 30vh;
+				z-index: 20;
+				display: none;
+			}
+			#guize h2{
+				text-align: center;
+				line-height: 5vh;
+			}
+			#guize_zi{
+				width: 74vw;
+				height: 30vh;
+				overflow: auto;
+			}
+			#guize_down{
+				border-top: 1px solid black;
+			}
+			#chou_no,#chou_yes{
+				width: 25vw;
+				height: 14vh;
+				position: absolute;
+				top: 45vh;
+				left: 37vw;
+				z-index: 50;
+				display: none;
+			}
+			#zhezhao{
+				width: 100vw;
+				height: 100vh;
+				background-color: black;
+				opacity: 0.3;
+				position: absolute;
+				top: 0;
+				z-index: 50;
+				display: none;
+			}
+			#tis,#tis_2{
+				width: 68vw;
+				height: 12vh;
+				background-color: white;
+				border-radius: 10px;
+				position: fixed;
+				left: 16vw;
+				top: 41vh;
+				z-index: 55;
+				display: none;
+			}
+			#tis h4,#tis_2 h4{
+				width: 68vw;
+				height: 4vh;
+				text-align: center;
+				line-height: 4vh;
+			}
+			#tis p,#tis_2 p{
+				width: 68vw;
+				text-align: center;
+				color: red;
+			}
+			#que,#que_2{
+				border-top: 1px solid black;
+				margin-top: 1vh;
+			}
+			#jiangping{
+				width: 74vw;
+				height: 28vh;
+				background-color: white;
+				border-radius: 10px;
+				position: fixed;
+				z-index: 60;
+				top: 30vh;
+				left: 12vw;
+				display: none;
+			}
+			#jiangping h3{
+				width: 74vw;
+				height: 4vh;
+				line-height: 4vh;
+				text-align: center;
+			}
+			#jiangping h4{
+				width: 36.5vw;
+				height: 4vh;
+				display: inline-block;
+				text-align: center;
+				line-height: 4vh;
+				border-top: 1px solid black;
+			}
+			#jiangping h4:first-child{
+				border-right: 1px solid black;
+			}
+			#j_xin,#j_dh{
+				width: 74vw;
+				height: 10vh;
+				padding-left: 5vw;
+				font-size: 12px;
+			}
+			#j_xin input,#j_dh input{
+				border: 1px solid black;
+				height: 3vh;
+			}
+			.big{
+				font-size: 14px;
+			}
+			#x_k,#s_k{
+				display: none;
+				color: red;
+			}
+			.cl{
+				position: absolute;
+				top: 25vh;
+				left: 30vw;
+				z-index: 15;
+				color: gold;
+			}
+			#dx{
+				display: none;
+			}
+			#dx_2 img{
+				width:100vw;
+				height: 55vh;
+				position: absolute;
+				top: 30vh;
+				z-index: 15;
+			}
+			#dx_3 img{
+				width:100vw;
+				height: 15vh;
+				position: absolute;
+				bottom: 0;
+				z-index: 15;
+			}
+			#huo_de{
+				width: 	90vw;
+				height: 50vh;
+				border: 4px solid red;
+				position: relative;
+				z-index: 30;
+				left: 5vw;
+				background-color: white;
+				overflow: auto;
+			}
+			#huo_de div{
+				width: 	90vw;
+				height: 16vh;
+				position: relative;
+				top: 1vh;
+			}
+			#huo_de img{
+				width: 50vw;
+				height: 9vh;
+				padding: 0 15vw;
+				border: 1px solid blue;
+				top:0;
+				left: 5vw;
+			}
+			#huo_de input{
+				width: 80vw;
+				height: 5vh;
+				border-radius: 10px;
+				background-color: red;
+				color: gold;
+				position: absolute;
+				bottom: 1vh;
+				left: 5vw;
+			}
+			#huo_de h2{
+				width: 90vw;
+				text-align: center;
+				height: 4vh;
+				line-height: 4vh;
+			}
+			#duij{
+				width: 50vw;
+				height: 14vh;
+				background-color: white;
+				border-radius: 10px;
+				position: absolute;
+				top: 50vh;
+				left: 25vw;
+				z-index: 55;
+				display: none;
+			}
+			#duij h2{
+				width: 50vw;
+				height: 4vh;
+				line-height: 4vh;
+				text-align: center;
+			}
+			#duij h4{
+				width: 24.5vw;
+				height: 4vh;
+				display: inline-block;
+				text-align: center;
+				line-height: 4vh;
+				border-top: 1px solid black;
+			}
+			#duij h4:first-child{
+				border-right: 1px solid black;
+			}
+			#duij input{
+				border: 1px solid black;
+				border-radius: 10px;
+			}
+			#duih{
+				width: 50vw;
+				height: 6vh;
+				margin: 0 0 0 4vw ;
+			}
+			#duij p{
+				color: red;
+				display: none;
+			}
+			.zhongj{
+				width: 74vw;
+				height: 30vh;
+				background-color: white;
+				border-radius: 10px;
+				position: fixed;
+				top: 30vh;
+				left: 12vw;
+				z-index: 55;
+			}
+			.zhongj img{
+				width: 50vw;
+				height: 15vh;
+				border: 1px solid blue;
+				padding: 0.5vh 7vw 0 7vw;
+				margin-left: 5vw;
+			}
+			.zhongj h2,.zhongj p,.zhongj h4{
+				text-align: center;
+				height: 4vh;
+				line-height: 4vh;
+			}
+			.zhongj p{
+				color: red;
+			}
+			.zhongj h4{
+				margin-top: 1.5vh;
+				border-top: 1px solid black;
+			}
+			#zhongj_0,#zhongj_1{
+				display: none;
+			}
+			#jp_0,#jp_1,#jp_2,#jp_3,#jp_4,#jp_5,#jp_6,#jp_7{
+				display: none;
+			}
+		</style>
+		<script src="js/jquery-2.2.0.min.js"></script>
+		<script src="js/jgg.js"></script>
+		<script>
+			$(function(){
+				var x = 3;
+				var arr = [0,7,7,1,7,7,2,3,4,5,6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7];
+				$("#btn").on("click",function(){
+					if(x==0){
+						$("#chou_no").css("display","block");
+						return;
+					}else{
+						x--;
+						$("#num").text(x);
+					}
+					console.log(x);
+					console.log(arr.length);
+					var a = parseInt(Math.random()*27);
+					console.log(a);
+					jgg(arr[a]);
+				});
+				$("#ks_game").on("click",function(){
+					$("#ks").css("display","none");
+					$("#zhu").css("display","block");
+				});
+				$(".ovclick").on("click",function(){
+					console.log("wow");
+					$("#guize").css("display","block");
+					$("#zhezhao").css("display","block");
+				});
+				$("#guize_down").on("click",function(){
+					$("#guize").css("display","none");
+					$("#zhezhao").css("display","none");
+				});
+				$("#que").on("click",function(){
+					$("#tis").css("display","none");
+					$("#zhezhao").css("display","none");
+				});
+				$("#que_2").on("click",function(){
+					$("#tis_2").css("display","none");
+					$("#zhezhao").css("display","none");
+				});
+				$("#chou_no").on("click",function(){
+					$("#tis").css("display","block");
+					$("#zhezhao").css("display","block");
+				})
+				$("#chou_yes").on("click",function(){
+					$("#tis_2").css("display","block");
+					$("#zhezhao").css("display","block");
+				})
+				$("#jiang").on("click",function(){
+					$("#jiangping").css("display","block");
+					$("#zhezhao").css("display","block");
+				});
+				$("#xin").on("blur",function(){
+					if($("#xin").val()==""){
+						$("#x_k").css("display","block");
+					}else{
+						$("#x_k").css("display","none");
+					}
+				});
+				$("#dh").on("blur",function(){
+					var $zzdh = /^1[34578][\d]{9}$/.test($("#dh").val());
+					if($("#dh").val()==""){
+						$("#s_k").css("display","block").html("手机不能为空");
+					}else{
+						if($zzdh){
+							$("#s_k").css("display","none");
+						}else{
+							$("#s_k").css("display","block").html("手机不合法");
+						}
+					}
+				});
+				$("#qu").on("click",function(){
+					var $zzdh = /^1[34578][\d]{9}$/.test($("#dh").val());
+					if($zzdh&&$("#dh").val()!=""){
+						$("#zhu").css("display","none");
+						$("#dx").css("display","block");
+						$("#jiangping").css("display","none");
+						$("#zhezhao").css("display","none");
+						$("#chou_no").css("display","none");
+						$("#xin").val("");
+						$("#dh").val("");
+					}else if($("#xin").val()==""){
+						$("#x_k").css("display","block");
+					}else if($("#dh").val()==""){
+						$("#s_k").css("display","block").html("手机不能为空");
+					}else if($("#dh").val()!=""&&!$zzdh){
+						$("#s_k").css("display","block").html("手机不合法");
+					}else{
+						$("#x_k").css("display","none");
+						$("#s_k").css("display","none");
+					}
+				});
+				$("#qux").on("click",function(){
+					$("#jiangping").css("display","none");
+					$("#zhezhao").css("display","none");
+					$("#xin").val("");
+					$("#dh").val("");
+				});
+				$(".but").on("click",function(){
+					duijiangmima();
+					q = $(".but").index(this);
+					console.log(q);
+					$("#zhezhao").css("display","block");
+				});
+				function duijiangmima(){
+					$("#duij").css("display","block");
+					$("#qun").on("click",function(){
+						var pad = 1234;
+						var j = $("#qun").index(this);
+						if($("#inpp").val() == pad){
+							$("#die").css("display","none");
+							$("#zhezhao").css("display","none");
+							$("#duij").css("display","none");
+							$("#inpp").val("");
+							$(".but").eq(q).val("已兑奖");
+							$(".but").eq(q).unbind("click");
+						}else{
+							$("#die").css("display","block");
+							$("#inpp").val("");
+						}
+					});
+					$("#qunn").on("click",function(){
+						$("#zhezhao").css("display","none");
+						$("#duij").css("display","none");
+						$("#inpp").val("");
+					});
+				}
+				$("#bbc").on("click",function(){
+					$("#zhu").css("display","block");
+					$("#dx").css("display","none");
+				})
+				$(".quni").on("click",function(){
+					$("#zhongj_0").css("display","none");
+					$("#zhongj_1").css("display","none");
+					$("#zhezhao").css("display","none");
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="ks">
+			<img src="img/index1.jpg" />
+			<img id="ks_game" src="img/index2.jpg" />
+			<img src="img/index3.jpg" />
+		</div>
+		<div id="zhu">
+			<div id="zhu_1">
+				<img class="fir" src="img/jg_02.jpg" />
+			<p id="rpx">抽奖次数<span id="num">3</span>次<span class="ovclick">游戏规则</span></p>
+			</div>
+			<div id="zhu_2">
+				<img id="back" src="img/jg_03.jpg" />
+				<div id="box" >
+					<img src="img/sudoku_01.jpg"/>
+					<img src="img/sudoku_02.jpg"/>
+					<img src="img/sudoku_03.jpg"/>
+					<img src="img/sudoku_04.jpg"/>			
+					<img src="img/sudoku_06.jpg"/>
+					<img src="img/sudoku_07.jpg"/>
+					<img src="img/sudoku_08.jpg"/>
+					<img src="img/sudoku_09.jpg"/>
+					<img id="btn" src="img/sudoku_05.jpg"/>
+				</div>
+			</div>
+			<div id="zhu_3">
+				<img id="jiang" src="img/jg_04.jpg" />
+			</div>
+			<div id="zhu_4">
+			<img id="down" src="img/jg_05.jpg" />
+				<div id="down_box">
+					<h2>已发出的奖品：</h2>
+					<div id="lunbo_box">
+						<div id="lunbo">
+							<div>152****9545&nbsp;获得圣雅瑜伽SPA会所储值卡</div>
+							<div>185****9545&nbsp;获得中国联通流量卡</div>
+							<div>176****9545&nbsp;S5健身俱乐部贵宾卡</div>
+							<div>132****9545&nbsp;获得圣雅瑜伽SPA会所储值卡</div>
+							<div>182****9545&nbsp;获得蛋壳科技VR体验卡</div>
+							<div>135****9545&nbsp;获得中国联通流量卡</div>
+							<div>159****9545&nbsp;获得圣雅瑜伽SPA会所储值卡</div>
+							<div>138****9545&nbsp;获得陶进二胡工作室</div>
+							<div>155****9545&nbsp;获得中国联通流量卡</div>
+							<div>185****9545&nbsp;获得中国联通流量卡</div>
+							<div>176****9545&nbsp;S5健身俱乐部贵宾卡</div>
+							<div>159****9545&nbsp;获得圣雅瑜伽SPA会所储值卡</div>
+							<div>136****9545&nbsp;获得莱沃口腔储值卡</div>
+							<div>182****9545&nbsp;获得蛋壳科技VR体验卡</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="guize">
+			<h2>游戏规则</h2>
+			<div id="guize_zi">
+				<p>1. 	客户需要登录彩练客户端方可参加抽奖活动；</p>
+				<p>2. 	每名客户每天抽奖有3次机会，点击转盘的【开始抽奖】按钮进行抽奖，转动结束停留的位置就是您获得的奖品；</p>
+				<p>3. 	中奖后需填写姓名、电话，兑奖时根据您的填写的信息进行现场兑奖，具体奖项如下：</p>
+				<p>黄封村人参酒两瓶：共100份，总价值12000元</p>
+				<p>莱沃口腔储值卡：共50份，总价值10000元</p>
+				<p>中国联通流量卡：共200份，总价值10000元</p>
+				<p>S5健身俱乐部贵宾卡：共有80份，总价值8000元</p>
+				<p>圣雅瑜伽SPA会所储值卡：共3份，总价值6000元</p>
+				<p>陶进二胡工作室：共20份，总价值6000元</p>
+				<p>蛋壳科技VR体验卡：共50份，总价值2500元</p>
+				<p>4. 	抽奖时间：</p>
+				<p>2017年1月27日游戏时间：22：30~23：59：59</p>
+				<p>2017年1月28日~30日游戏时间：每天10：00~23：59：59</p>
+				<p>5. 	各奖品兑奖方式及时间不同，具体如下：</p>
+				<p>1)	黄封村人参酒</p>
+				<p>兑奖时间：截止到2017年2月26日</p>
+				<p>兑奖地址：吉林省酒文化博物馆（亚泰大街9699号）</p>
+				<p>联系电话：0431-88508899</p>
+				<p>2)	莱沃口腔储值卡</p>
+				<p>兑奖时间：截止到2017年12月31日</p>
+				<p>兑奖地址：工农大路1780号（省中医院东侧）</p>
+				<p>联系电话：0431—89545888</p>
+				<p>注：洗牙4次（不限本人使用）；口腔体检；</p>
+				<p>3)	中国联通流量卡</p>
+				<p>兑奖时间：截止到2017年3月31日</p>
+				<p>兑奖地址：长春市内联通营业厅登记统一存入</p>
+				<p>联系电话：无</p>
+				<p>注：2G/3G用户500M流量；4G用户1G流量;异地号码，非正常在用号码、已有相同流量包、融合套餐等不能使用</p>
+				<p>4)	S5健身俱乐部贵宾卡</p>
+				<p>兑奖时间：截止到2017年4月30日</p>
+				<p>兑奖地址：</p>
+				<p>南关区幸福街与蔚山路交会处绿地中央广场盘古家宴旁</p>
+				<p>高新区荷园路与华光街交会处东行50米安联国际</p>
+				<p>绿园区景阳大路与春城大街交会处北行150米</p>
+				<p>联系电话：</p>
+				<p>0431—81887555；</p>
+				<p>0431—80811555；</p>
+				<p>0431—88006122</p>
+				<p>注：3店通用；单天无时间限制，器材限制使用；</p>
+				<p>5)	圣雅瑜伽SPA会所储值卡</p>
+				<p>兑奖时间：截止到2017年7月1日</p>
+				<p>兑奖地址：飞跃东路林田创客公园D栋2楼彩练新闻</p></p>
+				<p>联系电话：13943017772</p>
+				<p>注：每人限用1张；不含服装、垫子等费用；</p>
+				<p>6)	陶进二胡工作室</p>
+				<p>兑奖时间：截止到2017年12月31日</p>
+				<p>兑奖地址：飞跃东路林田创客公园D栋2楼彩练新闻</p>
+				<p>联系电话：13943017772</p>
+				<p>注：学习二胡免一次课时费；</p>
+				<p>7)	蛋壳科技VR体验卡</p>
+				<p>兑奖时间：截止到2017年7月1日</p>
+				<p>兑奖地址：</p>
+				<p>同志街与同光路交会处联通营业厅；</p>
+				<p>联通营业厅前进大街店；</p>
+				<p>联系电话：无</p>
+				<p>注意：VR互动实战体验一次</p>
+				<p>活动最终解释权归彩练新闻所有。</p>
+			</div>
+			<div id="guize_down"><h2>确定</h2></div>
+		</div>
+		<div id="chou_no"></div>
+		<div id="tis">
+			<h4>提示</h4>
+			<p>抽奖次数已用完，请下次在来!</p>
+			<div id="que"><h4>确定</h4></div>
+		</div>
+		<div id="chou_yes"></div>
+		<div id="tis_2">
+			<h4>提示</h4>
+			<p>正在抽奖，请稍后。</p>
+			<div id="que_2"><h4>确定</h4></div>
+		</div>
+		<div id="jiangping">
+			<h3>输入信息</h3>
+			<from>
+				<div id="j_xin">
+					<p class="big">姓名：</p>
+					<input id="xin" type="text" maxlength="8" placeholder="请输入你的姓名" />
+					<p id="x_k">你输入的姓名为空。</p>
+				</div>
+				<div id="j_dh">
+					<p class="big">手机号码：</p>
+					<input id="dh" type="text" maxlength="11" placeholder="请输入你的手机号码" />
+					<p id="s_k">你输入的手机号码为空。</p>
+				</div>
+				<div>
+					<h4 id="qu">确认</h4><h4 id="qux">取消</h4>
+				</div>
+			</from>
+		</div>
+		<div id="dx">
+			<div id="dx_1">
+				<img class="fir" src="img/jg_02.jpg" />
+				<p class="ovclick cl">游戏规则</p>
+			</div>
+			<div id="dx_2">
+				<img src="img/jg_03.jpg" />
+				<div id="huo_de">
+					<h2>我的奖品</h2>
+					<div id="jp_0"><img src="img/sudoku_01.jpg"><input class="but" type="button" value="立即兑换"></div>
+					<div id="jp_1"><img src="img/sudoku_02.jpg"><input class="but" type="button" value="立即兑换"></div>
+					<div id="jp_2"><img src="img/sudoku_03.jpg"><input class="but" type="button" value="立即兑换"></div>
+					<div id="jp_3"><img src="img/sudoku_04.jpg"><input class="but" type="button" value="立即兑换"></div>
+					<div id="jp_4"><img src="img/sudoku_06.jpg"><input class="but" type="button" value="立即兑换"></div>
+					<div id="jp_5"><img src="img/sudoku_07.jpg"><input class="but" type="button" value="立即兑换"></div>
+					<div id="jp_6"><img src="img/sudoku_08.jpg"><input class="but" type="button" value="立即兑换"></div>
+					<div id="jp_7"><img src="img/sudoku_09.jpg"><input class="but" type="button" value="立即兑换"></div>
+				</div>
+			</div>
+			<div id="dx_3">
+				<img id="bbc" src="img/jg_01_04.jpg" />
+			</div>
+		</div>
+		<div id="zhezhao"></div>
+		<div id="duij">
+			<h2>兑奖密码</h2>
+			<div id="duih">
+				<input id="inpp" type="password" />
+				<p id="die">密码不正确</p>
+			</div>
+			<div><h4 id="qun">确认</h4><h4 id="qunn">取消</h4></div>
+		</div>
+		<div class="zhongj" id="zhongj_0">
+			<h2>提示</h2>
+			<p>恭喜你，中奖了。</p>
+			<img id="img_tab" src="img/sudoku_01.jpg" />
+			<h4 class="quni">确定</h4>
+		</div>
+		<div class="zhongj" id="zhongj_1">
+			<h2>提示</h2>
+			<p>很遗憾，你未中奖。</p>
+			<img id="img_tab" src="img/sudoku_09.jpg" />
+			<h4 class="quni">确定</h4>
+		</div>
+	</body>
+</html>
